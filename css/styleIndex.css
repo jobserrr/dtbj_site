@@ -1,0 +1,46 @@
+body {
+  overflow-y: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.relative-Index {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-Index{
+  width: 10%;
+  height: 10%;
+  position: absolute;
+  left: 27%;
+  margin-left: -27px;
+  top: 10%;
+  margin-top: -50px;
+  z-index: 2;
+}
+
+.absolute-Index {
+  width: 50%;
+  position: absolute;
+  left: 27%;
+  margin-left: -27px;
+  top: 80%;
+  margin-top: -50px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  text-decoration: none;
+}
+
+.button-Color-Index {
+  background-color: #de3ced;
+  text-decoration: none;
+  padding: 30px;
+  padding-left: 70px;
+  padding-right: 70px;
+}
