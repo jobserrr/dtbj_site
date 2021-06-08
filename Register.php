@@ -26,7 +26,7 @@ include("insertdatabase.php");
                         <input type="password" class="input-box" placeholder="Wachtwoord">
                         <button type="submit" class="submit-btn">Submit</button>
                         <input type="checkbox"><span>Remember Me</span>
-                    <form>
+                    </form>
                             <button type="button" class="btn" onclick="openRegistreer()">Ik heb nog geen account</button>
                             <a href="">Wachtwoord Vergeten</a>
                 </div>

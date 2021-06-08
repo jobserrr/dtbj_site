@@ -16,26 +16,28 @@
 
 <body>
     <div class="mainContainerindex relative-Index">
-        <div id="myCarousel" class="carousel slide carousel-faderelative-Index" data-bs-ride="carousel">
+        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="img/forest1.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="img/f2QZBNF.gif" class="d-block w-100 h-100vh" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/forest2.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="img/3MbidN.webp" class="d-block w-100 h-100vh" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="img/forest3.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="img/1508728764_7wUvnKc.gif" class="d-block w-100 h-100vh" alt="...">
                 </div>
             </div>
         </div>
+        <div class="absolute-index">
+            <a href="Register.html" class="loginButton">
+                <input type="button" value="Register"></button>
+            </a>
+            <a href="Login.html">
+                <input type="button" value="Login"></button>
+            </a>
+        </div>
     </div>
-    <a href="Register.html" class="loginButton">
-      <input type="button" value="Register"></button>
- </a>
- <a href="Login.html" class="loginButton">
-      <input type="button" value="Login"></button>
- </a>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>

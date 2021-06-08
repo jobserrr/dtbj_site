@@ -26,7 +26,7 @@
         $conn = db_connect();
 
         // define empty array posts
-        $posts = [];
+        $posts = array();
 
         // define sql
 
@@ -55,22 +55,8 @@
             $Gebruikersnaam = trim($_POST['Gebruikersnaam']);
             $Password = trim($_POST['Password']);
             $Email = trim($_POST['Email']);
-            // $WebsiteName = trim($_POST['WebsiteName']);
-            // $HexCode = trim($_POST['HexCode']);
-            // Checks if the email checkbox is checked
-            // if(!isset($_POST['ShowEmailAdress']))
-            // {
-            //     $showEmailAdress = 0;
-            // }
-            // else
-            // {
-            //     $showEmailAdress = 1;
-            // }
-            // $userURL = trim($_POST['userURL']);
-            // $MessageTitle = trim($_POST['MessageTitle']);
-            // $Message = trim($_POST['Message']);
-
-            $errorMessage = [];
+            echo "hoi";
+            $errorMessage = array();
 
             // Checks if any text areas are NOT filled in, if NOT it  fills the errorMessage string with the according message
             if($Gebruikersnaam == "")
@@ -94,19 +80,19 @@
             // if($MessageTitle == "")
             // {
             //     // add item to array errorMessage
-            //     $errorMessage[] = "Please enter a title for your message";
+            //     $errorMessagearray() = "Please enter a title for your message";
             // }
 
             // if($Message == "")
             // {
             //     // add item to array errorMessage
-            //     $errorMessage[] = "Please fill in your message";
+            //     $errorMessagearray() = "Please fill in your message";
             // }
 
             // // check if message has not more than 160 characters
             // elseif(strlen($Message) > 160)
             // {
-            //     $errorMessage[] = "Message too long, please enter a message under the 160 characters";
+            //     $errorMessagearray() = "Message too long, please enter a message under the 160 characters";
             // }
             if(count($errorMessage) > 0)
             {
@@ -136,6 +122,7 @@
 
                     $result = $conn->query($insertPostSQL) or die($conn->error);
             }
+            $result = null;
             // checks if all came through and is inserted, if true fills errorMessage string with confirmation message
             if($result != null)
             {
