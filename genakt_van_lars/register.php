@@ -25,11 +25,11 @@ $username_err = $password_err = $confirm_password_err = $code_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
-    if(empty(trim($_POST["username"]))){
+    if(trim($_POST["username"])){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT id FROM `gebruikersgegevens` WHERE 1";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -58,7 +58,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate password
-    if(empty(trim($_POST["password"]))){
+    if(trim($_POST["password"])){
         $password_err = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
         $password_err = "Password must have atleast 6 characters.";
@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Validate confirm password
-    if(empty(trim($_POST["confirm_password"]))){
+    if(trim($_POST["confirm_password"])){
         $confirm_password_err = "Please confirm password.";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
@@ -75,16 +75,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
-    if($_POST['code'] != "110304" && $_POST['code'] != ""){
-        $code_err = "That code isn't allowed to register";  
-    }
+    // if($_POST['code'] != "110304" && $_POST['code'] != ""){
+    //     $code_err = "That code isn't allowed to register";  
+    // }
 
     
     // Check input errors before inserting in database
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO gebruikersgegevens (Gebruikersnaam, Password) VALUES (?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -116,11 +116,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <div class="form-group <?php echo (!empty($code_err)) ? 'has-error' : ''; ?>">
+        <!-- <div class="form-group <?php echo (!empty($code_err)) ? 'has-error' : ''; ?>">
                 <label>Login Code</label>
                 <input type="text" name="code" class="login-field" value="<?php echo $code; ?>">
                 <span class="help-block"><?php echo $code_err; ?></span>
-            </div> 
+            </div>  -->
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="login-field" value="<?php echo $username; ?>">

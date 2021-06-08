@@ -50,7 +50,7 @@
     <div class="profile_content">
       <div class="profile">
         <div class="profile_details">
-          <img src="images/Jep.png" alt="PF">
+          <img src="images/profielfoto.png" alt="PF">
           <div class="name_email">
             <div class="name">Jesper Pluijm</div>
             <div class="email">86053@roc-teraa.nl</div>
@@ -60,10 +60,11 @@
       </div>
     </div>
   </div>
-  </div>
   <div class="home_content">
     <div class="text">Zal wel mijn fout zijn</div>
   </div>
+  </div>
+  
 
   <script>
         let btn = document.querySelector("#btn");

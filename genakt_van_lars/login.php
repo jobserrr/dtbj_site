@@ -27,21 +27,21 @@ require_once "inc/database.php";
 $link = dbconnect();
  
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $Password = "";
 $username_err = $password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
-    if(empty(trim($_POST["username"]))){
+    if(trim($_POST["username"])){
         $username_err = "Please enter username.";
     } else{
         $username = trim($_POST["username"]);
     }
     
     // Check if password is empty
-    if(empty(trim($_POST["password"]))){
+    if(trim($_POST["password"])){
         $password_err = "Please enter your password.";
     } else{
         $password = trim($_POST["password"]);
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT UserID, Gebruikersnaam, Password FROM `gebruikersgegevens` WHERE 1";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
