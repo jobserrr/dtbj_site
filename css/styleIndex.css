@@ -7,40 +7,37 @@ body {
   padding: 0;
 }
 
-.relative-Index {
+
+@font-face {
+  font-family: Proftaakfont;
+  src: url('../fonts/proftaakfont.ttf');
+}
+
+.h-100vh{
+  height: 100vh !important;
+}
+
+.relative-Index{
   position: relative;
   z-index: 1;
 }
 
-.logo-Index{
-  width: 10%;
-  height: 10%;
-  position: absolute;
-  left: 27%;
-  margin-left: -27px;
-  top: 10%;
-  margin-top: -50px;
-  z-index: 2;
-}
-
-.absolute-Index {
-  width: 50%;
-  position: absolute;
-  left: 27%;
-  margin-left: -27px;
-  top: 80%;
-  margin-top: -50px;
-  z-index: 2;
-  display: flex;
-  justify-content: space-between;
+.loginButton {
+  width: 22%;
+  height: 55px;
+  background-color: #DE3CED;
+  border: 3px solid #707070;
+  border-radius: 24px;
+  margin-top: 1%;
+  font-family: Proftaakfont;
+  font-size: 125%;
+  font-weight: bold;
   color: black;
-  text-decoration: none;
+  position: absolute;
+  z-index: 2;
 }
 
-.button-Color-Index {
-  background-color: #de3ced;
-  text-decoration: none;
-  padding: 30px;
-  padding-left: 70px;
-  padding-right: 70px;
+.loginButton:hover {
+  background-color: #c233cfc9;
+  border: 2px solid black;
 }
