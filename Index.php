@@ -31,7 +31,7 @@
         </div>
         <ul class="nav absolute-Index">
             <li class="nav-item button-Color-Index">
-                <a class="nav-link active" aria-current="page" href="Register.html">Active</a>
+                <a class="nav-link active" aria-current="page" href="Register.php">Active</a>
             </li>
         </ul>
     </div>
