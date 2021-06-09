@@ -18,8 +18,8 @@ require_once "inc/database.php";
 $link = dbconnect();
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = $code= "";
-$username_err = $password_err = $confirm_password_err = $code_err = "";
+$username = $password = $confirm_password = "";
+$username_err = $password_err = $confirm_password_err = "";
  
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -29,14 +29,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Please enter a username.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM `gebruikersgegevens` WHERE 1";
+        $sql = "SELECT UserID FROM `gebruikersgegevens` WHERE 1";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
             
             // Set parameters
-            $param_username = trim($_POST["username"]);
+            $param_username = trim($_POST["Gebruikersnaam"]);
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
@@ -75,9 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
-    // if($_POST['code'] != "110304" && $_POST['code'] != ""){
-    //     $code_err = "That code isn't allowed to register";  
-    // }
+    
 
     
     // Check input errors before inserting in database
@@ -116,11 +114,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form class="login-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <!-- <div class="form-group <?php echo (!empty($code_err)) ? 'has-error' : ''; ?>">
-                <label>Login Code</label>
-                <input type="text" name="code" class="login-field" value="<?php echo $code; ?>">
-                <span class="help-block"><?php echo $code_err; ?></span>
-            </div>  -->
+        
             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
                 <label>Username</label>
                 <input type="text" name="username" class="login-field" value="<?php echo $username; ?>">
