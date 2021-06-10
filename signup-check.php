@@ -12,43 +12,52 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['password'])
     $uname = Validate($_POST['uname']);
     $pass = Validate($_POST['password']);
     $name = Validate($_POST['name']);
-    $re_pass = Validate($_POST['re_pass']);
+    $re_pass = Validate($_POST['re_password']);
+    $user_data = 'uname=' . $uname . '&name=' . $name;
+
+
 
     if (empty($uname)) {
-        header("location: Register.php?error=Gebruikersnaam is verplicht");
+        header("location: Register.php?error=Gebruikersnaam is verplicht&$user_data");
+        exit();
+    } elseif (empty($name)) {
+        header("location: Register.php?error=Naam is verplicht&$user_data");
         exit();
     } elseif (empty($pass)) {
-        header("location: Register.php?error=Wachtwoord is verplicht");
+        header("location: Register.php?error=Wachtwoord is verplicht&$user_data");
         exit();
-    }elseif (empty($name)) {
-        header("location: Register.php?error=naam is verplicht");
+    } elseif (empty($re_pass)) {
+        header("location: Register.php?error=Opnieuw wachtwoord invullen is verplicht&$user_data");
         exit();
-    }elseif (empty($re_pass)) {
-        header("location: Register.php?error=opnieuw Wachtwoord invullen is verplicht");
+    } elseif ($pass !== $re_pass) {
+        header("location: Register.php?error=Wachtwoorden komen niet overeen&$user_data");
         exit();
     } else {
-        $sql = "SELECT * FROM `gebruikers` where user_name='$uname' and password='$pass' ";
+        //hashin the passowrd
+        $pass = md5($pass);
+
+        $sql = "SELECT * FROM `gebruikers` where user_name='$uname'";
 
         $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if($row['user_name']=== $uname && $row['password'] === $pass){
-                $_SESSION['user_name'] = $row['user_name'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['id'] = $row['id'];
-                header("location: post.php");
-                exit();
-            } else {
-                header("location: Register.php?error=verkeerde gebruikersnaam of wachtwoord");
-                exit();
-            }
-        } else {
-            header("location: Register.php?error=verkeerde gebruikersnaam of wachtwoord");
+        if (mysqli_num_rows($result) > 0) {
+            header("location: Register.php?error=Deze gebruikersnaam is al gebruikt probeer een andere&$user_data");
             exit();
         }
+        else{
+            $sql2 = "insert into gebruikers(user_name, password, name) values('$uname', '$pass', '$name')";
+            $result2 = mysqli_query($conn, $sql2);
+            if($result2){
+                header("location: Register.php?succes=account gemaakt!&$user_data");
+            exit();
+            }else{
+                header("location: Register.php?error=onbekend probleem&$user_data");
+            exit();
+            }
+        }
+        
     }
-} else {
-    header("location: Register.php");
-    exit();
+    // } else {
+    //     header("location: Register.php");
+    //     exit();
 }

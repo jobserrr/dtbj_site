@@ -1,45 +1,71 @@
-<?php
-session_start();
-include "inc/db_connect.php";
-if (isset($_POST['uname']) && isset($_POST['password'])) {
-    function Validate($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-    $uname = Validate($_POST['uname']);
-    $pass = Validate($_POST['password']);
-    if (empty($uname)) {
-        header("location: Register.php?error=Gebruikersnaam is verplicht");
-        exit();
-    } elseif (empty($pass)) {
-        header("location: Register.php?error=Wachtwoord is verplicht");
-        exit();
-    } else {
-        $sql = "SELECT * FROM `gebruikers` where user_name='$uname' and password='$pass' ";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container">
+        <div class="card">
+            <div class="inner-box" id="card">
+            <div class="card-front">
+                    <h2>LOGIN</h2>
+                    <form action="login-check.php" method="POST">
+                        <?php if (isset($_GET['error'])) {
+                        ?><p class="error"><?php echo $_GET['error']; ?></p><?php
+                                                                        } ?>
+                        <input type="text" name="uname" class="input-box" placeholder="Gebruikersnaam">
+                        <input type="password" name="password" class="input-box" placeholder="Wachtwoord">
+                        <button type="submit" class="submit-btn">Login</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                    </form>
+                    <button type="button" class="btn" onclick="transitionToPage('Register.php')">Ik heb nog geen account</button>
+                    <a href="">Wachtwoord Vergeten</a>
+                </div>
+                
+                <div class="card-back">
+                    <h2>REGISTREER</h2>
+                    <form action="signup-check.php" method="POST">
+                        <?php if (isset($_GET['error'])) {
+                        ?><p class="error"><?php echo $_GET['error']; ?></p><?php } ?>
+                        <input type="text" class="input-box" placeholder="Gebruikersnaam" name="uname">
+                        <input type="text" class="input-box" placeholder="name" name="name">
+                        <input type="password" class="input-box" placeholder="Wachtwoord" name="password">
+                        <input type="password" class="input-box" placeholder="Vul wachtwoord opnieuw in" name="re_password">
+                        <button type="submit" class="submit-btn">Submit</button>
+                        <input type="checkbox"><span>Remember Me</span>
+                    </form>
+                    <a onclick="transitionToPage('register.php')"><button type="button" class="btn-registreer" >Ik heb een account</button></a>
+                    <a href="">Wachtwoord Vergeten</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // login en registeer flip
+        var card = document.getElementById("card")
 
-        $result = mysqli_query($conn, $sql);
+        function openRegistreer() {
+            card.style.transform = "rotateY(-180deg)"
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if($row['user_name']=== $uname && $row['password'] === $pass){
-                $_SESSION['user_name'] = $row['user_name'];
-                $_SESSION['name'] = $row['name'];
-                $_SESSION['id'] = $row['id'];
-                header("location: post.php");
-                exit();
-            } else {
-                header("location: Register.php?error=verkeerde gebruikersnaam of wachtwoord");
-                exit();
-            }
-        } else {
-            header("location: Register.php?error=verkeerde gebruikersnaam of wachtwoord");
-            exit();
         }
-    }
-} else {
-    header("location: Register.php");
-    exit();
+
+        function openLogin() {
+            card.style.transform = "rotateY(0deg)"
+        }
+        
+        window.transitionToPage = function(href) {
+    document.getElementById('card').style.transform = "rotateY(-200deg)"
+    setTimeout(function() { 
+        window.location.href = href
+    }, 500)
+    document.addEventListener('DOMContentLoaded', function(event) {
+    document.getElementById('card').style.transform = "rotateY(-200deg)"
+})  
 }
+    </script>
+</body>
+</html>
