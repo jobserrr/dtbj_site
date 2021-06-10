@@ -16,26 +16,26 @@
 
 <body>
     <div class="mainContainerindex relative-Index">
-        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="img/f2QZBNF.gif" class="d-block w-100 h-100vh" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/3MbidN.webp" class="d-block w-100 h-100vh" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="img/1508728764_7wUvnKc.gif" class="d-block w-100 h-100vh" alt="...">
-                </div>
-            </div>
-        </div>
         <div class="absolute-index">
-            <a href="Register.html" class="loginButton">
-                <input type="button" value="Register"></button>
+            <a href="Login.html">
+                <input type="button" value="Register" class="button-Index"></button>
             </a>
             <a href="Login.html">
-                <input type="button" value="Login"></button>
+                <input type="button" value="Login" class="button-Index"></button>
             </a>
+        </div>
+        <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active relative-Index">
+                    <img src="img/forest1.jpg" class="d-block w-100 h-100vh" alt="...">
+                </div>
+                <div class="carousel-item relative-Index">
+                    <img src="img/forest2.jpg" class="d-block w-100 h-100vh" alt="...">
+                </div>
+                <div class="carousel-item relative-Index">
+                    <img src="img/forest3.jpg" class="d-block w-100 h-100vh" alt="...">
+                </div>
+            </div>
         </div>
     </div>
 
