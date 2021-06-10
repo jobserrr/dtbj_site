@@ -1,10 +1,6 @@
-<?php
-include("insertdatabase.php");
-    $return = storeMessage();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,28 +15,36 @@ include("insertdatabase.php");
     <div class="container">
         <div class="card">
             <div class="inner-box" id="card">
+
                 <div class="card-front">
                     <h2>LOGIN</h2>
-                    <form action="" method="POST">
-                        <input type="text" class="input-box" placeholder="Gebruikersnaam">
-                        <input type="password" class="input-box" placeholder="Wachtwoord">
-                        <button type="submit" class="submit-btn">Submit</button>
+                    <form action="login.php" method="POST">
+                        <?php if (isset($_GET['error'])) {
+                        ?><p class="error"><?php echo $_GET['error']; ?></p><?php
+                                                                        } ?>
+                        <input type="text" name="uname" class="input-box" placeholder="Gebruikersnaam">
+                        <input type="password" name="password" class="input-box" placeholder="Wachtwoord">
+                        <button type="submit" class="submit-btn">Login</button>
                         <input type="checkbox"><span>Remember Me</span>
                     </form>
-                            <button type="button" class="btn" onclick="openRegistreer()">Ik heb nog geen account</button>
-                            <a href="">Wachtwoord Vergeten</a>
+                    <button type="button" class="btn" onclick="openRegistreer()">Ik heb nog geen account</button>
+                    <a href="">Wachtwoord Vergeten</a>
                 </div>
                 <div class="card-back">
                     <h2>REGISTREER</h2>
-                    <form action="register.php" method="POST">
-                        <input type="text" class="input-box" placeholder="Gebruikersnaam" name="">
-                        <input type="email" class="input-box" placeholder="Email">
-                        <input type="password" class="input-box" placeholder="Wachtwoord">
+                    <form action="signup-check.php" method="POST">
+                        <?php if (isset($_GET['error'])) {
+                        ?><p class="error"><?php echo $_GET['error']; ?></p><?php
+                                                                        } ?>
+                        <input type="text" class="input-box" placeholder="Gebruikersnaam" name="uname">
+                        <input type="text" class="input-box" placeholder="name" name="name">
+                        <input type="password" class="input-box" placeholder="Wachtwoord" name="password">
+                        <input type="password" class="input-box" placeholder="Vul wachtwoord opnieuw in" name="re_password">
                         <button type="submit" class="submit-btn">Submit</button>
                         <input type="checkbox"><span>Remember Me</span>
-                        <form>
-                            <button type="button" class="btn-registreer" onclick="openLogin()">Ik heb een account</button>
-                            <a href="">Wachtwoord Vergeten</a>
+                    </form>
+                    <button type="button" class="btn-registreer" onclick="openLogin()">Ik heb een account</button>
+                    <a href="">Wachtwoord Vergeten</a>
                 </div>
             </div>
         </div>
@@ -51,6 +55,7 @@ include("insertdatabase.php");
 
         function openRegistreer() {
             card.style.transform = "rotateY(-180deg)"
+
         }
 
         function openLogin() {
