@@ -20,6 +20,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
     } else {
         //hashin the passowrd
         $pass = md5($pass);
+        
         $sql = "SELECT * FROM `gebruikers` where user_name='$uname' and password='$pass' ";
 
         $result = mysqli_query($conn, $sql);
