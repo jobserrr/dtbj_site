@@ -62,11 +62,11 @@
 
                         <input type="password" class="input-box" placeholder="Wachtwoord" name="password">
                         <input type="password" class="input-box" placeholder="Vul wachtwoord opnieuw in" name="re_password">
-                        <button type="submit" class="submit-btn">Submit</button>
+                        <button type="submit" class="submit-btn">registreer</button>
                         <input type="checkbox"><span>Remember Me</span>
                     </form>
                     <a onclick="transitionToPage('login.php')"><button type="button" class="btn-registreer" >Ik heb een account</button></a>
-                    <a href="">Wachtwoord Vergeten</a>
+                    <!-- <a href="">Wachtwoord Vergeten</a> -->
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
         }
         
         window.transitionToPage = function(href) {
-    document.getElementById('card').style.transform = "rotateY(-195deg)"
+    document.getElementById('card').style.transform = "rotateY(-180deg)"
     setTimeout(function() { 
         window.location.href = href
     }, 500)

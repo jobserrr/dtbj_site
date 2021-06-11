@@ -35,7 +35,7 @@
                         <input type="text" class="input-box" placeholder="name" name="name">
                         <input type="password" class="input-box" placeholder="Wachtwoord" name="password">
                         <input type="password" class="input-box" placeholder="Vul wachtwoord opnieuw in" name="re_password">
-                        <button type="submit" class="submit-btn">Submit</button>
+                        <button type="submit" class="submit-btn">login</button>
                         <input type="checkbox"><span>Remember Me</span>
                     </form>
                     <a onclick="transitionToPage('register.php')"><button type="button" class="btn-registreer" >Ik heb een account</button></a>

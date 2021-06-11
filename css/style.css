@@ -89,7 +89,10 @@
     
     .submit-btn {
         position: relative;
+        text-transform: uppercase;
     }
+    
+    .submit-btn:hover {}
     
     .submit-btn::after {
         content: '\27a4';
