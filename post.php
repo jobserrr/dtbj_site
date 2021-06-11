@@ -70,9 +70,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         </div>
       </div>
       <div class="home_content">
-        <div class="text">Zal wel mijn fout zijn</div>
+      <div class="home_container">
+        <div class="homemessage_container">
+          <div class="homemessageheader">
+            <div class="home-profilepictures">
+              <img src="images/profielfoto.png" alt="Profile Picture">
+              <h4 class="home-username">DaanRijnders (username)</h4>
+            </div>
+
+            <div class="home-message">
+
+            </div>
+          </div>
+          <div class="home-messagebox">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
 
     <script>
@@ -86,9 +102,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       searchBtn.onclick = function() {
         sidebar.classList.toggle("active");
       }
-      // sidebar.onclick = function(){
-      //   sidebar.classList.toggle("active");
-      // }
     </script>
 
   </body>
