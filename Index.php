@@ -27,13 +27,13 @@
         <div id="myCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active relative-Index">
-                    <img src="img/forest1.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="images/forest1.jpg" class="d-block w-100 h-100vh" alt="...">
                 </div>
                 <div class="carousel-item relative-Index">
-                    <img src="img/forest2.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="images/forest2.jpg" class="d-block w-100 h-100vh" alt="...">
                 </div>
                 <div class="carousel-item relative-Index">
-                    <img src="img/forest3.jpg" class="d-block w-100 h-100vh" alt="...">
+                    <img src="images/forest3.jpg" class="d-block w-100 h-100vh" alt="...">
                 </div>
             </div>
         </div>
