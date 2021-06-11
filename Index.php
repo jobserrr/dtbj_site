@@ -17,10 +17,10 @@
 <body>
     <div class="mainContainerindex relative-Index">
         <div class="absolute-index">
-            <a href="Login.html">
+            <a href="Register.php">
                 <input type="button" value="Register" class="button-Index"></button>
             </a>
-            <a href="Login.html">
+            <a href="Login.php">
                 <input type="button" value="Login" class="button-Index"></button>
             </a>
         </div>
