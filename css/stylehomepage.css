@@ -6,6 +6,8 @@
 
 body {
     background-color: #C0C0C0;
+    background-image: linear-gradient(#de3ced, rgb(255, 255, 255));
+
 } 
 /* Navbar */
 
@@ -258,4 +260,67 @@ body {
 .logout i{
     text-decoration: none;
     color: white;
+}
+
+.homemessage_container{
+    /* border: 1px black solid; */
+    width: 70%;
+    margin: 3px auto;
+    background: white;
+}
+
+.home-profilepictures img{
+    width: 60px;
+    border-radius: 70%;
+    margin: 10px 10px;
+}
+
+.home-username{
+    margin-top: 35px;
+}
+
+.homemessageheader{
+    display: flex;
+    border-bottom: black 1px solid;
+    width: 95%;
+    margin: 0px auto;
+}
+
+.homemessagefooter{
+    border-top: solid black 1px;
+    width: 95%;
+    margin: 10px auto;
+    font-size: 40px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.fa:hover {
+    color: darkblue;
+    font-size: 40px;
+
+}
+
+.home-messagebox img{
+    width: 30%;
+}
+.home-messagebox{
+    margin-left: 20px;
+    margin-right: 20px;
+    line-height: normal;
+}
+/* Responsive */
+@media screen and (max-width: 525px){
+    .homemessageheader{
+        display: block;
+    }
+
+    .home-username{
+        margin-top: 0px;
+        margin-left: 15%;
+    }
+
+    .home-profilepictures img{
+        margin: 10px 30%;
+    }
 }

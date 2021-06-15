@@ -15,6 +15,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     <title>DTBJ BV.</title>
     <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" type="text/css" href="css/stylehomepage.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   </head>
 
@@ -75,15 +76,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           <div class="homemessageheader">
             <div class="home-profilepictures">
               <img src="images/profielfoto.png" alt="Profile Picture">
-              <h4 class="home-username">DaanRijnders (username)</h4>
             </div>
-
-            <div class="home-message">
-
+            <div class="home-profilename">
+            <h4 class="home-username">DaanRijnders (username)</h4>
             </div>
           </div>
           <div class="home-messagebox">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.
+            <img src="images/logo.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.</p>
+          </div>
+          <div class="homemessagefooter">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
           </div>
         </div>
       </div>
@@ -101,6 +105,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       }
       searchBtn.onclick = function() {
         sidebar.classList.toggle("active");
+      }
+      function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
       }
     </script>
 
