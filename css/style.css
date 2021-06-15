@@ -93,10 +93,6 @@
         background: linear-gradient(90deg, #de3ced, rgb(119, 27, 111));
     }
     
-    .submit-btn:hover {
-        background-color: #fff;
-    }
-    
     .submit-btn::after {
         content: '\27a4';
         color: #333;

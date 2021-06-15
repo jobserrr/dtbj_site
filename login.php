@@ -20,7 +20,7 @@
                                                                         } ?>
                         <input type="text" name="uname" class="input-box" placeholder="Gebruikersnaam">
                         <input type="password" name="password" class="input-box" placeholder="Wachtwoord">
-                        <button type="submit" class="submit-btn">Login</button>
+                        <button type="submit" class="submit-btn pulse">Login</button>
                         <input type="checkbox"><span>Remember Me</span>
                     </form>
                     <button type="button" class="btn" onclick="transitionToPage('Register.php')">Ik heb nog geen account</button>
