@@ -6,8 +6,7 @@
 
 body {
     background-color: #C0C0C0;
-    background-image: linear-gradient(#de3ced, rgb(255, 255, 255));
-
+    background-image: linear-gradient(to bottom right, #c937d6, white);
 } 
 /* Navbar */
 
@@ -24,7 +23,7 @@ body {
     left: 0;
     height: 100%;
     width: 78px;
-    background-image: linear-gradient(#de3ced, rgb(71, 13, 67));
+    background-image: linear-gradient(#ea63f7, rgb(71, 13, 67));
     padding: 6px 14px;
     transition: all 0.5s ease;
 }

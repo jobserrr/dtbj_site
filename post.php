@@ -83,7 +83,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           </div>
           <div class="home-messagebox">
             <img src="images/logo.png" alt="">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.</p>
+            <p>Hallo Mensen!
+              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
+              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
+            </p>
           </div>
           <div class="homemessagefooter">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
