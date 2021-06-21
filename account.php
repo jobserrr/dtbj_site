@@ -142,6 +142,9 @@
         searchBtn.onclick = function(){
           sidebar.classList.toggle("active");
         }
+        function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+        }
 </script>
 </body>
 </html>
