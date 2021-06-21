@@ -1,7 +1,3 @@
-<?php
-include 'upload.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,72 +15,8 @@ include 'upload.php';
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 </head>
-<style>
-.add_message {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border: 1px solid red;
-}
-
-.add_message i {
-    font-size: 50px;
-}
 
 
-/* The Modal (background) */
-
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-</style>
 <body>
   <div class="post_page">
     <div class="sidebar">
@@ -137,6 +69,9 @@ include 'upload.php';
       </div>
     </div>
     <div class="home_content">
+      <div class="add_message">
+        <a href="post-message.php"><i class='bx bx-message-add'></i></a>
+      </div>
       <div class="home_container">
         <div class="homemessage_container">
           <div class="homemessageheader">
@@ -146,79 +81,106 @@ include 'upload.php';
             </div>
 
             <div class="home-message">
-              <?php
-              // Include the database configuration file
-              include "inc/db_connect.php";
-
-              // Get images from the database
-              $query = $conn->query("SELECT * FROM images ORDER BY uploaded_on DESC");
-
-              if ($query->num_rows > 0) {
-                while ($row = $query->fetch_assoc()) {
-                  $imageURL = 'uploads/' . $row["file_name"];
-              ?>
-                  <img src="<?php echo $imageURL; ?>" alt="" />
-                <?php }
-              } else { ?>
-                <p>No image(s) found...</p>
-              <?php } ?>
+              
             </div>
           </div>
           <div class="home-messagebox">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.
           </div>
 
+
         </div>
       </div>
-      <div class="add_message">
-        <i class='bx bx-message-add'></i>
-      </div>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-      </button>
+
+
 
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content postmodal">
             <div class="modal-body">
+              <div class="wrapper">
+                <div class="input-box">
+                  <div class="post-area">
+                    <form method="post" action="">
+                      <span class="placeholder" id="myTextarea">whats happening</span>
+                      <div class=" input editable" contenteditable="true" spellcheck="false" id="test2"></div>
+                      <div class="input readonly" contenteditable="true" spellcheck="false"></div>
+                      <p><img id="output" class="output" width="200" /></p>
+                      <p> <img class="preview" id="preview" alt=""></p>
+                      <p><img id="outputGif" width="200"></p>
+                  </div>
+                  <div class="privacy">
+                    <i class='bx bx-globe'></i>
+                    <span>iedereen kan reageren</span>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <ul class="icons">
+                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i></label></li>
+                    <li><label for="file2" style="cursor: pointer;"><i class='bx bxs-file-gif'></i></label></li>
 
-              <form action="upload.php" method="post" enctype="multipart/form-data">
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <input type="file" name="file">
-                <input type="submit" name="submit" value="Upload">
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+                    <li><i class='bx bx-happy'></i></li>
+                    <li><i class='bx bxs-user'></i></li>
+                    <label for="imgInp">UPLOAD PICTURE:</label>
+                    <input type="file" name="photo" id="imgInp" onchange="loadFile(event);" style="display: none;">
+                    <input type="file" accept="image/gif" name="image" id="file2" onchange="loadFile(eventGif)" style="display: none;">
+                  </ul>
+                  <div class="content">
+                    <span class="counter">100</span>
+                    <button>post</button>
+                  </div>
+                </div>
+                </form>
+                <script src="java/postModal.js">
+                  // var loadFile = function(event) {
+                  //   var image = document.getElementById('output');
+                  //   image.src = URL.createObjectURL(event.target.files[0]);
+                  // };
+                  // var loadFile = function(eventGif) {
+                  //   var image = document.getElementById('outputGif');
+                  //   image.src = URL.createObjectURL(event.target.files[0]);
+                  // };
+                  var loadFile = function(event) {
+                    oldimg = $('.preview').attr('src');
+                    var preview = document.getElementById('preview');
+                    preview.src = URL.createObjectURL(event.target.files[0]);
+                    newimg = preview.src;
+                    if (newimg.indexOf('/null') > -1) {
+                      preview.src = oldimg;
+                    }
+                  };
+
+                  $('.submit-button').on('click', function(event) {
+                    alert('This is a dummy submit button. It does nothing.');
+                    event.preventDefault();
+                  });
+                </script>
+                <!-- <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div> -->
+                <!-- </div> -->
+              </div>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
-  </div>
 
 
-  <script>
-    let btn = document.querySelector("#btn");
-    let sidebar = document.querySelector(".sidebar");
-    let searchBtn = document.querySelector(".bx-search");
+      <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let searchBtn = document.querySelector(".bx-search");
 
-    btn.onclick = function() {
-      sidebar.classList.toggle("active");
-    }
-    searchBtn.onclick = function() {
-      sidebar.classList.toggle("active");
-    }
-  </script>
+        btn.onclick = function() {
+          sidebar.classList.toggle("active");
+        }
+        searchBtn.onclick = function() {
+          sidebar.classList.toggle("active");
+        }
+      </script>
 
 </body>
 
