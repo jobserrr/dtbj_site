@@ -43,7 +43,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
             <span class="tooltip">Home</span>
           </li>
           <li>
-            <a href="#">
+            <a href="account.php">
               <i class='bx bx-user'></i>
               <span class="links_name">Account</span>
             </a>
