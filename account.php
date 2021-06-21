@@ -72,16 +72,6 @@
         <h1>Thijs Klerkx</h1>
       </div>
     <div class="scroll">
-    /* Hide scrollbar for Chrome, Safari and Opera */
-.example::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.example {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-} 
       <div class="posts">
         <div class="background-post">
           Naam:
