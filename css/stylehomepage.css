@@ -347,4 +347,7 @@ body {
     .home-profilepictures img {
         margin: 10px 30%;
     }
+    .sidebar.active {
+        width: 200px;
+    }
 }
