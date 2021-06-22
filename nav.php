@@ -13,7 +13,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+  <style>
+    .add_message{
+      position: fixed;
+      bottom: 0;
+      right: 0;
+    }
+    .add_message a {
+      display: flex;
+      font-size: 40px;
+      border-radius: 50%;
+      color: #de3ced;
+      /* background-color: #470d43; */
+      width: 50px;   
+      height: 50px;
+      justify-content: center;
+      margin-top: 5px;
+      padding-top: 5px;
+      text-decoration: none;
+    }
+    .add_message i:hover{
+      font-size: 42.5px;
+    }
+  </style>
 </head>
 
 
@@ -69,105 +91,95 @@
       </div>
     </div>
     <div class="home_content">
-      <div class="add_message">
-        <a href="post-message.php"><i class='bx bx-message-add'></i></a>
-      </div>
       <div class="home_container">
         <div class="homemessage_container">
           <div class="homemessageheader">
             <div class="home-profilepictures">
               <img src="images/profielfoto.png" alt="Profile Picture">
-              <h4 class="home-username">DaanRijnders (username)</h4>
             </div>
-
-            <div class="home-message">
-              
+            <div class="home-profilename">
+              <h4 class="home-username">DaanRijnders (username)</h4>
             </div>
           </div>
           <div class="home-messagebox">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur explicabo ipsum porro incidunt quo, adipisci natus minima, odio vitae aut nam! Eius expedita perspiciatis nemo impedit illum provident et exercitationem.
+            <img src="images/logo.png" alt="">
+            <p>Hallo Mensen!
+              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
+              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
+            </p>
           </div>
-
-
+          <div class="homemessagefooter">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+          </div>
         </div>
-      </div>
-
-
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content postmodal">
-            <div class="modal-body">
-              <div class="wrapper">
-                <div class="input-box">
-                  <div class="post-area">
-                    <form method="post" action="">
-                      <span class="placeholder" id="myTextarea">whats happening</span>
-                      <div class=" input editable" contenteditable="true" spellcheck="false" id="test2"></div>
-                      <div class="input readonly" contenteditable="true" spellcheck="false"></div>
-                      <p><img id="output" class="output" width="200" /></p>
-                      <p> <img class="preview" id="preview" alt=""></p>
-                      <p><img id="outputGif" width="200"></p>
-                  </div>
-                  <div class="privacy">
-                    <i class='bx bx-globe'></i>
-                    <span>iedereen kan reageren</span>
-                  </div>
-                </div>
-                <div class="bottom">
-                  <ul class="icons">
-                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i></label></li>
-                    <li><label for="file2" style="cursor: pointer;"><i class='bx bxs-file-gif'></i></label></li>
-
-                    <li><i class='bx bx-happy'></i></li>
-                    <li><i class='bx bxs-user'></i></li>
-                    <label for="imgInp">UPLOAD PICTURE:</label>
-                    <input type="file" name="photo" id="imgInp" onchange="loadFile(event);" style="display: none;">
-                    <input type="file" accept="image/gif" name="image" id="file2" onchange="loadFile(eventGif)" style="display: none;">
-                  </ul>
-                  <div class="content">
-                    <span class="counter">100</span>
-                    <button>post</button>
-                  </div>
-                </div>
-                </form>
-                <script src="java/postModal.js">
-                  // var loadFile = function(event) {
-                  //   var image = document.getElementById('output');
-                  //   image.src = URL.createObjectURL(event.target.files[0]);
-                  // };
-                  // var loadFile = function(eventGif) {
-                  //   var image = document.getElementById('outputGif');
-                  //   image.src = URL.createObjectURL(event.target.files[0]);
-                  // };
-                  var loadFile = function(event) {
-                    oldimg = $('.preview').attr('src');
-                    var preview = document.getElementById('preview');
-                    preview.src = URL.createObjectURL(event.target.files[0]);
-                    newimg = preview.src;
-                    if (newimg.indexOf('/null') > -1) {
-                      preview.src = oldimg;
-                    }
-                  };
-
-                  $('.submit-button').on('click', function(event) {
-                    alert('This is a dummy submit button. It does nothing.');
-                    event.preventDefault();
-                  });
-                </script>
-                <!-- <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div> -->
-                <!-- </div> -->
-              </div>
+        <div class="homemessage_container">
+          <div class="homemessageheader">
+            <div class="home-profilepictures">
+              <img src="images/profielfoto.png" alt="Profile Picture">
+            </div>
+            <div class="home-profilename">
+              <h4 class="home-username">DaanRijnders (username)</h4>
             </div>
           </div>
-
+          <div class="home-messagebox">
+            <img src="images/logo.png" alt="">
+            <p>Hallo Mensen!
+              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
+              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
+            </p>
+          </div>
+          <div class="homemessagefooter">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+          </div>
+        </div>
+        <div class="homemessage_container">
+          <div class="homemessageheader">
+            <div class="home-profilepictures">
+              <img src="images/profielfoto.png" alt="Profile Picture">
+            </div>
+            <div class="home-profilename">
+              <h4 class="home-username">DaanRijnders (username)</h4>
+            </div>
+          </div>
+          <div class="home-messagebox">
+            <img src="images/logo.png" alt="">
+            <p>Hallo Mensen!
+              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
+              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
+            </p>
+          </div>
+          <div class="homemessagefooter">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+          </div>
+        </div>
+        <div class="homemessage_container">
+          <div class="homemessageheader">
+            <div class="home-profilepictures">
+              <img src="images/profielfoto.png" alt="Profile Picture">
+            </div>
+            <div class="home-profilename">
+              <h4 class="home-username">DaanRijnders (username)</h4>
+            </div>
+          </div>
+          <div class="home-messagebox">
+            <img src="images/logo.png" alt="">
+            <p>Hallo Mensen!
+              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
+              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
+            </p>
+          </div>
+          <div class="homemessagefooter">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+          </div>
         </div>
       </div>
-
+      <div class="add_message">
+        <a href="post-message.php"><i class='bx bx-message-add'></i></a>
+      </div>
 
       <script>
         let btn = document.querySelector("#btn");
