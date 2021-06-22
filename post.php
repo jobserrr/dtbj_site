@@ -21,7 +21,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
   <body>
     <div class="post_page">
-      <div class="sidebar">
+      <div class="sidebar"  onclick="RemoveName()">
         <div class="logo_content">
           <div class="logo">
             <!-- <img src="images/favicon.png" alt="LOGO"> -->
@@ -43,7 +43,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
             <span class="tooltip">Home</span>
           </li>
           <li>
-            <a href="#">
+            <a href="account.php">
               <i class='bx bx-user'></i>
               <span class="links_name">Account</span>
             </a>
@@ -72,7 +72,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       </div>
       <div class="home_content">
       <div class="home_container">
-        <div class="homemessage_container">
+        <div class="homemessage_container" id="MessageContainer">
           <div class="homemessageheader">
             <div class="home-profilepictures">
               <img src="images/profielfoto.png" alt="Profile Picture">
@@ -120,12 +120,31 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     </div>
   </div>
 
-
+    <script type="text/javascript" src="java/jquery.js"></script>
     <script>
       let btn = document.querySelector("#btn");
       let sidebar = document.querySelector(".sidebar");
       let searchBtn = document.querySelector(".bx-search");
 
+      $("#btn").click(function()
+      {
+        if(OnPhone == 1)
+        {
+          $(".homemessage_container").fadeToggle(500);
+        }
+      })
+
+      setInterval(function Dummy()
+      {
+        if(window.screen.width <= 415)
+      {
+        OnPhone = 1;
+      }
+      else
+      {
+        OnPhone = 0;
+      }
+      }, 1)           
       btn.onclick = function() {
         sidebar.classList.toggle("active");
       }
@@ -135,8 +154,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
       function myFunction(x) {
         x.classList.toggle("fa-thumbs-down");
       }
-    </script>
-
+      </script>
   </body>
 
   </html>
