@@ -21,8 +21,7 @@
                         <span class="placeholder" id="myTextarea">whats happening</span>
                         <div class="input editable" contenteditable="true" spellcheck="false"></div>
                         <div class="input readonly" contenteditable="true" spellcheck="false"></div>
-                        <label for="image">Image:</label>
-                        <input type="image" name="image" id="image" />
+                        <img src="" id="imgJplu">
                 </div>
                 <div class="privacy">
                     <i class='bx bx-globe'></i>
@@ -31,14 +30,16 @@
             </div>
             <div class="bottom">
                 <ul class="icons">
-                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i></label></li>
-                    <li><label for="file2" style="cursor: pointer;"><i class='bx bxs-file-gif'></i></label></li>
+
+
+                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i><input type="text"></label></li>
+                    <!-- <li><label for="file2" style="cursor: pointer;"><i class='bx bxs-file-gif'></i></label></li> -->
 
                     <li><i class='bx bx-happy'></i></li>
                     <li><i class='bx bxs-user'></i></li>
-                    <label for="imgInp"><i class="bx bxs-gif"></i></label>
-                    <input type="file" name="photo" id="imgInp" onchange="loadFile(event);" style="display: none;">
-                    <input type="file" accept="image/gif" name="image" id="file2" onchange="loadFile(eventGif)" style="display: none;">
+                    <!-- <label for="imgInp"><i class="bx bxs-gif"></i></label> -->
+                    <!-- <input type="file" name="photo" id="imgInp" onchange="loadFile(event);" style="display: none;">
+                    <input type="file" accept="image/gif" name="image" id="file2" onchange="loadFile(eventGif)" style="display: none;"> -->
                 </ul>
                 <div class="content">
                     <span class="counter">100</span>
@@ -47,7 +48,7 @@
             </div>
             </form>
             <script src="java/postModal.js">
-
+                
             </script>
         </div>
     </div>
