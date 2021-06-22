@@ -333,10 +333,15 @@ body {
     line-height: normal;
 }
 
+.sidebar.active .homemessage_container {
+    opacity: 1;
+    pointer-events: none;
+    }
+
 
 /* Responsive */
 
-@media screen and (max-width: 525px) {
+@media screen and (max-width: 542px) {
     .homemessageheader {
         display: block;
     }
@@ -348,6 +353,36 @@ body {
         margin: 10px 30%;
     }
     .sidebar.active {
-        width: 200px;
+        width: 240px;
     }
+    .sidebar.active .homemessageheader {
+    opacity: 0;
+    pointer-events: none;
+    }
+
+    .homemessageheader{
+    opacity: 1;
+    pointer-events: none;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .home-username{
+        margin: 0px auto;
+        font-size: 20px;
+    }
+}
+
+.sidebar .btn2
+{
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%);
 }
