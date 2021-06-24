@@ -1,3 +1,22 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
+  $sname = "localhost";
+  $uname= "root";
+  $password="usbw";
+  $db_name = "dtbj_database";
+
+  $conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+  if (!$conn){
+    echo"connection failed!";
+}     
+    $sql = "SELECT * FROM `post` p join gebruikers g on p.id = g.id ORDER BY `postId` DESC";
+    $result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,11 +72,11 @@
         <div class="profile_details">
           <img src="images/profielfoto.png" alt="PF">
           <div class="name_email">
-            <div class="name">Jesper Pluijm</div>
-            <div class="email">86053@roc-teraa.nl</div>
+            <div class="name"><?php echo $_SESSION['name']  ?></div>
+            <div class="email">@<?php echo $_SESSION['user_name']?></div>
           </div>
         </div>
-        <i class='bx bx-log-out' id="log_out"></i>
+        <a class="logout" href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
       </div>
     </div>
   </div>
@@ -69,66 +88,47 @@
         </div> -->
     </div>
     <div class="form">
-      <div class="container">
-        <h1>Thijs Klerkx</h1>
+    <div class="container">
+        <h1><?php echo $_SESSION["user_name"] ?></h1>
       </div>
-    <div class="scroll">
-      <!-- <div class="posts">
-        <div class="background-post">
-          Naam:
-        </div>
-        <DIV class="bericht">
-          Hier komt uw bericht te staan!
-        </DIV>
-      </div>
-      <div class="posts">
-        <div class="background-post">
-          Naam:
-        </div>
-        <DIV class="bericht">
-          Hier komt uw bericht te staan!
-        </DIV>
-    </div>
-    <div class="posts">
-        <div class="background-post">
-          Naam:
-        </div>
-        <DIV class="bericht">
-          Hier komt uw bericht te staan!
-        </DIV>
-    </div>
-    <div class="posts">
-        <div class="background-post">
-          Naam:
-        </div>
-        <DIV class="bericht">
-          Hier komt uw bericht te staan!
-        </DIV>
-    </div>
-    </div> -->
-    <div class="home_container">
-        <div class="homemessage_container">
-          <div class="homemessageheader">
-            <div class="home-profilepictures">
-              <img src="images/profielfoto.png" alt="Profile Picture">
-            </div>
-            <div class="home-profilename">
-            <h4 class="home-username">DaanRijnders (username)</h4>
+      <div class="scroll">
+    <?php
+    
+      if ($result->num_rows > 0) {
+        // output data of each row
+        $rows = 0;
+        while($row = $result->fetch_assoc()) {
+        $rows++;
+        if($row["id"] == $_SESSION['id']){?>  
+           <div class="home_container">
+            <div class="homemessage_container">
+              <div class="homemessageheader">
+                <div class="home-profilepictures">
+                  <img src="images/profielfoto.png" alt="Profile Picture">
+                </div>
+                <div class="home-profilename">
+                
+                <h4 class=home-username >@<?php echo $row["name"]. "&nbsp" . $row["user_name"] ?></h4>
+              
+                </div>
+              </div>
+              <div class="home-messagebox">
+                <?php 
+                echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
+                echo "<p>". $row["postMessage"]. "</p>";
+                ?>
+              </div>
+              <div class="homemessagefooter">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+              </div>
             </div>
           </div>
-          <div class="home-messagebox">
-            <img src="images/logo.png" alt="">
-            <p>Hallo Mensen!
-              Welkom bij mijn eerste post. Ik ga vandaag aanslag plegen op het huis van
-              jesper pluijm. Ik hoop dat ik zijn hele huis opblaas. Fijne dag allemaal project X in gemert
-            </p>
-          </div>
-          <div class="homemessagefooter">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-          </div>
-        </div>
-      </div>
+          <?php
+          }
+          }
+          }
+          ?>
   </div>
   </div>
   
@@ -147,4 +147,9 @@
         }
 </script>
 </body>
-</html>
+</html><?php
+} else {
+  header("location: logout.php");
+  exit();
+}
+?>
