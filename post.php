@@ -147,13 +147,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </div>
                 <div class="home-profilename">
                 
-                <h4 class=home-username >@<?php echo $row["name"]. "&nbsp" . $row["user_name"] ?></h4>
+                <h4 class=home-username >@<?php echo $row["user_name"]. "&nbsp" . $row["name"] ?></h4>
               
                 </div>
               </div>
               <div class="home-messagebox">
                 <?php 
-                echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
+                // echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
                 echo "<p>". $row["postMessage"]. "</p>";
                 ?>
               </div>
