@@ -372,17 +372,3 @@ body {
         font-size: 20px;
     }
 }
-
-.sidebar .btn2
-{
-    position: absolute;
-    color: #fff;
-    left: 50%;
-    top: 6px;
-    font-size: 20px;
-    height: 50px;
-    width: 50px;
-    text-align: center;
-    line-height: 50px;
-    transform: translateX(-50%);
-}

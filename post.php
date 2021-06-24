@@ -71,7 +71,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         </div>
       </div>
       <div class="home_content">
-      <div class="home_container">
+      <!-- <div class="home_container">
         <div class="homemessage_container" id="MessageContainer">
           <div class="homemessageheader">
             <div class="home-profilepictures">
@@ -118,8 +118,56 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+  <?php
+    $sname = "localhost";
+    $uname= "root";
+    $password="";
+    $db_name = "dtbj_database";
 
+    $conn = mysqli_connect($sname, $uname, $password, $db_name);
+
+    if (!$conn){
+      echo"connection failed!";
+}     
+      $sql = "SELECT * FROM `post` p join gebruikers g on p.id = g.id ORDER BY `postId` DESC";
+      $result = $conn->query($sql);
+    
+      if ($result->num_rows > 0) {
+        // output data of each row
+        $rows = 0;
+        while($row = $result->fetch_assoc()) {
+        $rows++;
+        if($row["postId"] > 0){?>
+           <div class="home_container">
+            <div class="homemessage_container">
+              <div class="homemessageheader">
+                <div class="home-profilepictures">
+                  <img src="images/profielfoto.png" alt="Profile Picture">
+                </div>
+                <div class="home-profilename">
+                
+                <h4 class=home-username >@<?php echo $row["name"]. "&nbsp" . $row["user_name"] ?></h4>
+              
+                </div>
+              </div>
+              <div class="home-messagebox">
+                <?php 
+                echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
+                echo "<p>". $row["postMessage"]. "</p>";
+                ?>
+              </div>
+              <div class="homemessagefooter">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+              </div>
+            </div>
+          </div>
+          <?php
+          }
+          }
+          }
+          ?>
     <script type="text/javascript" src="java/jquery.js"></script>
     <script>
       let btn = document.querySelector("#btn");
