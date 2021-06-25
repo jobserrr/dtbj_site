@@ -19,7 +19,7 @@
                 <div class="post-area">
                     <form method="post" action="postSend.php">
                         <span class="placeholder" id="myTextarea">whats happening</span>
-                        <div class="input editable" contenteditable="true" spellcheck="false"></div>
+                        <div class="input editable" name="userMessage" contenteditable="true" spellcheck="false"></div>
                         <div class="input readonly" contenteditable="true" spellcheck="false"></div>
                         <img src="" id="imgJplu">
                 </div>
@@ -30,9 +30,7 @@
             </div>
             <div class="bottom">
                 <ul class="icons">
-
-
-                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i><input type="text"></label></li>
+                    <li><label for="imgInp" style="cursor: pointer;"><i class='bx bxs-file-image'></i></label></li>
                     <!-- <li><label for="file2" style="cursor: pointer;"><i class='bx bxs-file-gif'></i></label></li> -->
 
                     <li><i class='bx bx-happy'></i></li>
