@@ -44,8 +44,8 @@ include "inc/functions.php"
                 </ul>
                 <div class="content">
                     <span class="counter">100</span>
-                    <input type="submit">
-                    <button>post</button>
+                    <input type="submit" class="button-send">
+                    <!-- <button>post</button> -->
                 </div>
             </div>
             </form>

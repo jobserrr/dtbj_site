@@ -3,7 +3,7 @@ const wrapper = document.querySelector(".wrapper"),
     readonlyInput = wrapper.querySelector(".readonly"),
     placeholder = wrapper.querySelector(".placeholder"),
     counter = wrapper.querySelector(".counter"),
-    button = wrapper.querySelector("button");
+    buttonSend = wrapper.querySelector(".button-send");
 
 editableInput.onfocus = () => {
     placeholder.style.color = "#c5ccd3";
@@ -30,11 +30,11 @@ function validated(element) {
     if (currentlength <= 0) {
         placeholder.style.display = "block";
         counter.style.display = "none";
-        button.classList.remove("active");
+        buttonSend.classList.remove("active");
     } else {
         placeholder.style.display = "none";
         counter.style.display = "block";
-        button.classList.add("active");
+        buttonSend.classList.add("active");
     }
 
     counter.innerText = maxLength - currentlength;
@@ -45,7 +45,7 @@ function validated(element) {
         text = element.innerText.substr(0, maxLength) + overText; //passing overText value in textTag variable
         readonlyInput.style.zIndex = "1";
         counter.style.color = "red";
-        button.classList.remove("active");
+        buttonSend.classList.remove("active");
     } else {
         readonlyInput.style.zIndex = "-1";
         counter.style.color = "#333";

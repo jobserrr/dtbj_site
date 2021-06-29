@@ -134,7 +134,7 @@
     border-right: 1px solid #aab8c2;
 }
 
-.content button {
+.content .button-send {
     padding: 9px 18px;
     border: none;
     outline: none;
@@ -149,7 +149,7 @@
     transition: background 0.2s ease;
 }
 
-.content button.active {
+.content .button-send.active {
     opacity: 1;
     pointer-events: auto;
 }

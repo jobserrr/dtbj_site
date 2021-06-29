@@ -1,8 +1,6 @@
 <?php
-function db_connect()
-{
 
-}
+
 function storeMessage()
 {
 
@@ -15,7 +13,7 @@ function storeMessage()
         // fetch posted data
         $userMessage        = trim($_POST['userMessage']);
         
-        $errorMessage = [];
+        $errorMessage = array();
         // Empty first name
         if($userMessage == "")
         {
@@ -39,7 +37,7 @@ function storeMessage()
 
             $sname = "localhost";
             $uname= "root";
-            $password="";
+            $password="usbw";
             
             $db_name = "dtbj_database";
             
