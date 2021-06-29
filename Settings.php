@@ -38,7 +38,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           <span class="tooltip">Search</span>
         </li>
         <li>
-          <a href="test.php">
+          <a href="post.php">
             <i class='bx bx-home'></i>
             <span class="links_name">Home</span>
           </a>
