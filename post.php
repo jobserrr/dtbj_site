@@ -155,6 +155,39 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
         x.classList.toggle("fa-thumbs-down");
       }
       </script>
+      <script>
+      function readCookie(name) {
+        var c = document.cookie.split('; '),
+          cookies = {},
+          i, C;
+
+        for (i = c.length - 1; i >= 0; i--) {
+          C = c[i].split('=');
+          cookies[C[0]] = C[1];
+        }
+
+        return cookies[name];
+        localStorage.setItem("selLanguage", cookies[name])
+      }
+      console.log(readCookie('googtrans'));
+    </script>
+      <script>
+        jQuery('.lang-select').click(function() {
+        var theLang = jQuery(this).attr('data-lang');
+        jQuery('.goog-te-combo').val(theLang);
+          //alert(jQuery(this).attr('href'));
+        window.location = jQuery(this).attr('href');
+        location.reload();
+              });
+      </script>
+      <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en'
+          }, 'google_translate_element');
+          }
+      </script>
+      <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   </body>
 
   </html>
