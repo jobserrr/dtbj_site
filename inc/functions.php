@@ -1,29 +1,17 @@
 <?php
-function getPost()
+function db_connect()
 {
-    // Create databses connection
-    $conn = db_connect();
-    // define empty array posts
-    $posts = [];
-    // define sql
-    $getPostsSQL = "
-    SELECT * FROM `post`
-    ORDER BY
-    `postId`
-    ASC
-    ";
-    // run / execute query
-    // this will result in a result ser or
-    $result = $conn->query($getPostsSQL) or die($conn->error);
-    // fetch the result to an associative array
-    $posts = $result->fetch_all(MYSQLI_ASSOC);
-    // return the array
-    return $posts;
+
 }
 function storeMessage()
 {
+
+
+
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
+
+
         // fetch posted data
         $userMessage        = trim($_POST['userMessage']);
         
@@ -48,7 +36,14 @@ function storeMessage()
         }
         else // if count($errorMessage) == 0
         {
-            $conn = db_connect();
+
+            $sname = "localhost";
+            $uname= "root";
+            $password="";
+            
+            $db_name = "dtbj_database";
+            
+            $conn = mysqli_connect($sname, $uname, $password, $db_name);
             // define the query to be sent
             $insetPostSQL = "
             INSERT INTO `post`
@@ -65,16 +60,19 @@ function storeMessage()
            
             // run / execute the query and store in result
             // if boolean true, then the SQL passed
-            $result = $conn->query($insetPostSQL) or die($conn->error);
+            if (mysqli_query($conn, $insetPostSQL)) {
+                echo "New record created successfully";
+              } else {
+                echo "Error: " . $insetPostSQL . "<br>" . mysqli_error($conn);
+              }
+            // $result = $conn->query($insetPostSQL) or die($conn->error);
         }
-        if($result)
-        {
-            return array("Thnx for filling in the form", "We look out to your next message!");
-        }
-
+        
+       
         return false;
     }
     return "Please fill in our Guestbook";
 }
+storemessage();
 ?> 
 

@@ -1,3 +1,6 @@
+<?php 
+include "inc/functions.php" 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,15 +14,15 @@
 </head>
 
 <body>
-
     <div class="postbody">
         <div id="arrowback"><a href="nav.php"><i class='bx bx-arrow-back'></i></a></div>
         <div class="wrapper">
             <div class="input-box">
                 <div class="post-area">
-                    <form method="post" action="postSend.php">
+                    <form method="POST" action="inc/functions.php">
                         <span class="placeholder" id="myTextarea">whats happening</span>
-                        <div class="input editable" name="userMessage" contenteditable="true" spellcheck="false"></div>
+                        <!-- <div class="input editable" name="userMessage" contenteditable="true" spellcheck="false"></div> -->
+                        <input type="text" name="userMessage" class="input editable"></input>
                         <div class="input readonly" contenteditable="true" spellcheck="false"></div>
                         <img src="" id="imgJplu">
                 </div>
@@ -41,6 +44,7 @@
                 </ul>
                 <div class="content">
                     <span class="counter">100</span>
+                    <input type="submit">
                     <button>post</button>
                 </div>
             </div>
