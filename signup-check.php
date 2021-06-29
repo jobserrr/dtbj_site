@@ -45,7 +45,7 @@ if (isset($_POST['uname']) && isset($_POST['name']) && isset($_POST['password'])
             exit();
         }
         else{
-            $sql2 = "insert into gebruikers(user_name, password, name) values('$uname', '$pass', '$name')";
+            $sql2 = "INSERT INTO gebruikers(user_name, password, name) VALUES('$uname', '$pass', '$name')";
             $result2 = mysqli_query($conn, $sql2);
             if($result2){
                 header("location: Register.php?succes=account gemaakt!&$user_data");
