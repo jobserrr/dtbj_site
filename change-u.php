@@ -57,7 +57,7 @@ if (isset($_POST['ou']) && isset($_POST['nu'])
 
     
 }else{
-	header("Location: change-password.php");
+	header("Location: change-username.php");
 	exit();
 }
 

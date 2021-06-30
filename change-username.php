@@ -72,7 +72,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12 Settings-centering">
             <div class="card h-100">
               <div class="card-body">
-          <form action="change-p.php" method="post">
+          <form action="change-u.php" method="post">
      	  <h2>Change Username</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
