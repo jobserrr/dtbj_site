@@ -85,36 +85,28 @@ session_start();
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="fullName">Username</label>
-                      <input type="text" class="form-control" id="fullName" placeholder="Username">
-                    </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label for="eMail">Email</label>
-                      <input type="email" class="form-control" id="eMail" placeholder="email">
+                      <a href="change-username.php"><button class="form-control" id="myBtn">Change Username</button></a>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="phone">Password</label>
                       <br>
-                    <a href="change-password.php"><button id="myBtn">Change password</button></a>
-                    </body>
-                    </html>
+                    <a href="change-password.php"><button class="form-control" id="myBtn">Change password</button></a>
                     </div>
                   </div>
                   <div class="row gutters">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <h6 class="mb-3 text-primary">Settings</h6>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div class="form-group">
+                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"> -->
+                      <!-- <div class="form-group">
                         <label for="Street">Dark-mode</label>
                         <br>
                         <label onclick="DarkModeOff()">Off<input checked type="radio" name="btn"></label>
                         <label onclick="DarkModeOn()">On<input type="radio" name="btn"></label>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div class="form-group">
                         <label for="Street">Translate</label>
@@ -169,13 +161,6 @@ session_start();
 
                         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row gutters">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div class="text-right">
-                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                       </div>
                     </div>
                   </div>
