@@ -3,7 +3,7 @@
     {
         $servername = "localhost";
         $username = "root";
-        $password = "";
+        $password = "usbw";
         $dbname = "dtbj_database";
 
         // Create connection

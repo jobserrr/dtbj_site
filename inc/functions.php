@@ -37,7 +37,7 @@ function storeMessage()
 
             $sname = "localhost";
             $uname= "root";
-            $password="";
+            $password="usbw";
             
             $db_name = "dtbj_database";
             
