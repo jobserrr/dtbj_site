@@ -23,7 +23,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
     <body>
         <div class="postbody">
-            <div id="arrowback"><a href="nav.php"><i class='bx bx-arrow-back'></i></a></div>
+            <div id="arrowback"><a href="post.php"><i class='bx bx-arrow-back'></i></a></div>
             <div class="wrapper">
             <?php
             if(is_string(($return)))
