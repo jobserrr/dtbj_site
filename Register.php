@@ -42,7 +42,7 @@
                         ?><p class="succes"><?php echo $_GET['succes']; ?></p><?php } ?>
 
                         <?php if (isset($_GET['uname'])) { ?>
-                            t" class="input-box" placeholder="Gebruikersnaam" name="uname" value="<?php echo $_GET['uname']; ?>">
+                            <input type="text" class="input-box" placeholder="Gebruikersnaam" name="uname" value="<?php echo $_GET['uname']; ?>">
                         <?php } else { ?>
                             <input type="text" class="input-box" placeholder="Gebruikersnaam" name="uname">
                         <?php } ?>

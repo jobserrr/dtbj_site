@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+//if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+include "inc/db_connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -32,7 +38,7 @@
           <span class="tooltip">Search</span>
         </li>
         <li>
-          <a href="test.php">
+          <a href="post.php">
             <i class='bx bx-home'></i>
             <span class="links_name">Home</span>
           </a>
@@ -56,13 +62,13 @@
       <div class="profile_content">
         <div class="profile">
           <div class="profile_details">
-            <img src="images/Jep.png" alt="PF">
+            <img src="images/profielfoto.png" alt="PF">
             <div class="name_email">
-              <div class="name">Jesper Pluijm</div>
-              <div class="email">86053@roc-teraa.nl</div>
+              <div class="name"><?php echo $_SESSION['name']  ?></div>
+              <div class="email">@<?php echo $_SESSION['user_name'] ?></div>
             </div>
           </div>
-          <i class='bx bx-log-out' id="log_out"></i>
+          <a class="logout" href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
         </div>
       </div>
     </div>
@@ -79,33 +85,28 @@
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="fullName">Username</label>
-                      <input type="text" class="form-control" id="fullName" placeholder="Username">
-                    </div>
-                  </div>
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label for="eMail">Email</label>
-                      <input type="email" class="form-control" id="eMail" placeholder="email">
+                      <a href="change-username.php"><button class="form-control" id="myBtn">Change Username</button></a>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="phone">Password</label>
-                      <input type="text" class="form-control" id="phone" placeholder="Password">
+                      <br>
+                      <a href="change-password.php"><button class="form-control" id="myBtn">Change password</button></a>
                     </div>
                   </div>
                   <div class="row gutters">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                       <h6 class="mb-3 text-primary">Settings</h6>
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                      <div class="form-group">
+                    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"> -->
+                    <!-- <div class="form-group">
                         <label for="Street">Dark-mode</label>
                         <br>
                         <label onclick="DarkModeOff()">Off<input checked type="radio" name="btn"></label>
                         <label onclick="DarkModeOn()">On<input type="radio" name="btn"></label>
                       </div>
-                    </div>
+                    </div> -->
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                       <div class="form-group">
                         <label for="Street">Translate</label>
@@ -119,7 +120,8 @@
                           }
                         </script>
 
-                        <script>function DarkModeOff() {
+                        <script>
+                          function DarkModeOff() {
                             localStorage.setItem("Mode", 0);
                             if (DarkModeVar == 0) {
                               var element = document.getElementById;
@@ -144,7 +146,8 @@
                               var element = document.getElementById;
                               element.classList.toggle("light-mode");
                             }
-                          },)</script>
+                          }, )
+                        </script>
 
                         <script>
                           jQuery('.lang-select').click(function() {
@@ -160,13 +163,6 @@
 
                         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row gutters">
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div class="text-right">
-                        <button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
                       </div>
                     </div>
                   </div>
@@ -212,3 +208,10 @@
 </body>
 
 </html>
+
+<?php
+//}else{
+//header("Location: index.php");
+//exit();
+//}
+?>

@@ -3,7 +3,7 @@
     {
         $servername = "localhost";
         $username = "root";
-        $password = "usbw";
+        $password = "";
         $dbname = "dtbj_database";
 
         // Create connection
@@ -133,4 +133,3 @@
         // If non of the above happened AKA the page has just been loaded in this message will be filled into the errorMessage string
         return "Please fill in our Guestbook";
     }
-?>

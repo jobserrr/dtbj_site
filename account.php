@@ -5,7 +5,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
   $sname = "localhost";
   $uname= "root";
-  $password="usbw";
+  $password="";
   $db_name = "dtbj_database";
 
   $conn = mysqli_connect($sname, $uname, $password, $db_name);
@@ -118,7 +118,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
               </div>
               <div class="home-messagebox">
                 <?php 
-                echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
                 echo "<p>". $row["postMessage"]. "</p>";
                 ?>
               </div>
