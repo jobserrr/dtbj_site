@@ -106,7 +106,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                           <input type="text" name="c_nu" class="form-control" placeholder="Confirm New Username">
                         </div>
                       </div>
-                      <button type="submit">CHANGE</button>
+                      <br>
+                      <button type="button" class="btn btn-dark">Change</button>
                     </form>
                   </div>
                 </div>

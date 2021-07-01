@@ -106,7 +106,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                           <input type="password" name="c_np" class="form-control" placeholder="Confirm New Password">
                         </div>
                       </div>
-                      <button type="submit">CHANGE</button>
+                      <br>
+                      <button type="button" class="btn btn-dark">Change</button>
                     </form>
                   </div>
                 </div>
