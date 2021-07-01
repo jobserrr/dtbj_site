@@ -1,8 +1,8 @@
-<?php 
+<?php
 session_start();
- 
+
 //if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
-  include "inc/db_connect.php";
+include "inc/db_connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en-US">
@@ -62,13 +62,13 @@ session_start();
       <div class="profile_content">
         <div class="profile">
           <div class="profile_details">
-            <img src="images/Jep.png" alt="PF">
+            <img src="images/profielfoto.png" alt="PF">
             <div class="name_email">
-              <div class="name">Jesper Pluijm</div>
-              <div class="email">86053@roc-teraa.nl</div>
+              <div class="name"><?php echo $_SESSION['name']  ?></div>
+              <div class="email">@<?php echo $_SESSION['user_name'] ?></div>
             </div>
           </div>
-          <i class='bx bx-log-out' id="log_out"></i>
+          <a class="logout" href="logout.php"><i class='bx bx-log-out' id="log_out"></i></a>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@ session_start();
                     <div class="form-group">
                       <label for="phone">Password</label>
                       <br>
-                    <a href="change-password.php"><button class="form-control" id="myBtn">Change password</button></a>
+                      <a href="change-password.php"><button class="form-control" id="myBtn">Change password</button></a>
                     </div>
                   </div>
                   <div class="row gutters">
@@ -100,7 +100,7 @@ session_start();
                       <h6 class="mb-3 text-primary">Settings</h6>
                     </div>
                     <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"> -->
-                      <!-- <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="Street">Dark-mode</label>
                         <br>
                         <label onclick="DarkModeOff()">Off<input checked type="radio" name="btn"></label>
@@ -120,7 +120,8 @@ session_start();
                           }
                         </script>
 
-                        <script>function DarkModeOff() {
+                        <script>
+                          function DarkModeOff() {
                             localStorage.setItem("Mode", 0);
                             if (DarkModeVar == 0) {
                               var element = document.getElementById;
@@ -145,7 +146,8 @@ session_start();
                               var element = document.getElementById;
                               element.classList.toggle("light-mode");
                             }
-                          },)</script>
+                          }, )
+                        </script>
 
                         <script>
                           jQuery('.lang-select').click(function() {
@@ -207,9 +209,9 @@ session_start();
 
 </html>
 
-<?php 
+<?php
 //}else{
-     //header("Location: index.php");
-     //exit();
+//header("Location: index.php");
+//exit();
 //}
- ?>
+?>

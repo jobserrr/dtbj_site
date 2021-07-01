@@ -37,7 +37,7 @@ function storeMessage()
 
             $sname = "localhost";
             $uname= "root";
-            $password="usbw";
+            $password="";
             
             $db_name = "dtbj_database";
             
@@ -72,5 +72,3 @@ function storeMessage()
     return "Please fill in our Guestbook";
 }
 storemessage();
-?> 
-
