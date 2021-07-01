@@ -72,10 +72,13 @@ session_start();
       </div>
       
       <div class="home_content">
+      <div class="add_message">
+        <a href="post-message.php"><i class='bx bx-message-add'></i></a>
+      </div>
   <?php
     $sname = "localhost";
     $uname= "root";
-    $password="";
+    $password="usbw";
     $db_name = "dtbj_database";
 
     $conn = mysqli_connect($sname, $uname, $password, $db_name);
