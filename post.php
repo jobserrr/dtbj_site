@@ -103,7 +103,7 @@ session_start();
                 </div>
                 <div class="home-profilename">
                 
-                <h4 class=home-username ><a href="account.php?id=<?php $row["id"] ?>">@<?php echo $row["user_name"] . "\n"?></a><?php echo $row["name"] ?> </h4>
+                <h4 class=home-username ><a href="">@<?php echo $row["user_name"] .  "\n"?></a><?php   echo $row["name"] ?> </h4>
               
                 </div>
               </div>

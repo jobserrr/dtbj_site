@@ -5,7 +5,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
   $sname = "localhost";
   $uname= "root";
-  $password="";
+  $password="usbw";
   $db_name = "dtbj_database";
 
   $conn = mysqli_connect($sname, $uname, $password, $db_name);
@@ -112,7 +112,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </div>
                 <div class="home-profilename">
                 
-                <h4 class=home-username ><a href="account.php?id="<?php echo "jip" . "\""?>>@<?php echo $row["user_name"]  ?></a><p><?php  "&nbsp" . $row["name"] ?></p></h4>
+                <h4 class=home-username ><a href="">@<?php echo $row["user_name"] . "\n" ?></a><?php echo $row["name"] ?></h4>
             
                 </div>
               </div>
