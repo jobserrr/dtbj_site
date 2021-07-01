@@ -67,7 +67,7 @@ function storeMessage()
             // run / execute the query and store in result
             // if boolean true, then the SQL passed
             if (mysqli_query($conn, $insetPostSQL)) {
-                echo "New record created successfully";
+                header("location: post.php");
             } else {
                 echo "Error: " . $insetPostSQL . "<br>" . mysqli_error($conn);
             }
@@ -77,7 +77,7 @@ function storeMessage()
 
         return false;
     }
-    return "Please fill in our Guestbook";
+    return "";
 }
 
 ?>
