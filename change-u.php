@@ -31,19 +31,21 @@ if (isset($_POST['ou']) && isset($_POST['nu'])
 	  exit();
     }else {
     	// hashing the username
-    	$ou = md5($ou);
-    	$nu = md5($nu);
+    	
         $id = $_SESSION['id'];
 
         $sql = "SELECT user_name
                 FROM gebruikers WHERE 
                 id='$id' AND user_name='$ou'";
+
+				//die($sql);
         $result = mysqli_query($conn, $sql);
         if(mysqli_num_rows($result) === 1){
         	
         	$sql_2 = "UPDATE gebruikers
         	          SET user_name='$nu'
         	          WHERE id='$id'";
+					  
         	mysqli_query($conn, $sql_2);
         	header("Location: change-username.php?success=Your Username has been changed successfully");
 	        exit();
