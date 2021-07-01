@@ -336,7 +336,7 @@ body {
 .sidebar.active .homemessage_container {
     opacity: 1;
     pointer-events: none;
-    }
+}
 
 
 /* Responsive */
@@ -356,19 +356,42 @@ body {
         width: 240px;
     }
     .sidebar.active .homemessageheader {
-    opacity: 0;
-    pointer-events: none;
+        opacity: 0;
+        pointer-events: none;
     }
-
-    .homemessageheader{
-    opacity: 1;
-    pointer-events: none;
+    .homemessageheader {
+        opacity: 1;
+        pointer-events: none;
     }
 }
 
 @media screen and (max-width: 330px) {
-    .home-username{
+    .home-username {
         margin: 0px auto;
         font-size: 20px;
     }
+}
+
+.add_message {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.add_message a {
+    display: flex;
+    font-size: 40px;
+    border-radius: 50%;
+    color: #de3ced;
+    /* background-color: #470d43; */
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    margin-top: 5px;
+    padding-top: 5px;
+    text-decoration: none;
+}
+
+.add_message i:hover {
+    font-size: 42.5px;
 }

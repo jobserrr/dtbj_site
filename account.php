@@ -89,6 +89,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
     </div>
     <div class="form">
     <div class="container">
+      <?php
+      
+
+      ?>
         <h1><?php echo $_SESSION["user_name"] ?></h1>
       </div>
       <div class="scroll">
@@ -108,8 +112,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </div>
                 <div class="home-profilename">
                 
-                <h4 class=home-username >@<?php echo $row["name"]. "&nbsp" . $row["user_name"] ?></h4>
-              
+                <h4 class=home-username ><a href="account.php?id="<?php echo "jip" . "\""?>>@<?php echo $row["user_name"]  ?></a><p><?php  "&nbsp" . $row["name"] ?></p></h4>
+            
                 </div>
               </div>
               <div class="home-messagebox">

@@ -35,17 +35,33 @@
     overflow-y: auto;
 }
 
-.post-area .placeholder {
+.post-area textarea {
+    width: 100%;
+    min-width: 425px;
+    border: none;
+    resize: none;
+}
+
+textarea[style] {
+    color: black !important;
+}
+
+.innertext {
+    color: black;
+}
+
+.post-area textarea::placeholder textarea::placeholder {
     position: absolute;
     margin-top: -3px;
     font-size: 22px;
-    color: #98a5b1;
+    color: #333;
     pointer-events: none;
 }
 
 .post-area .input {
     outline: none;
     font-size: 17px;
+    color: #333;
     min-height: inherit;
     word-wrap: break-word;
     word-break: break-all;

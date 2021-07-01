@@ -1,36 +1,39 @@
 const wrapper = document.querySelector(".wrapper"),
-    editableInput = wrapper.querySelector(".editable"),
+    // textarea = wrapper.querySelector(".editable")
+    textarea = wrapper.querySelector("textarea"),
     readonlyInput = wrapper.querySelector(".readonly"),
     placeholder = wrapper.querySelector(".placeholder"),
     counter = wrapper.querySelector(".counter"),
     buttonSend = wrapper.querySelector(".button-send");
 
-editableInput.onfocus = () => {
+placeholder.onfocus = () => {
     placeholder.style.color = "#c5ccd3";
 }
-editableInput.onblur = () => {
+placeholder.onblur = () => {
     placeholder.style.color = "#98a5b1";
 }
 
-editableInput.onkeyup = (e) => {
+textarea.onkeyup = (e) => {
     let element = e.target;
     validated(element);
 }
-editableInput.onkeypress = (e) => {
+textarea.onkeypress = (e) => {
     let element = e.target;
     validated(element);
-    placeholder.style.display = "none";
+    // placeholder.classList.remove("placeholder");
+    textarea.classList.add("innertext")
+    placeholder.style.color = "#c5ccd3";
 }
 
 function validated(element) {
     let text;
-    let maxLength = 100;
+    let maxLength = 150;
     let currentlength = element.innerText.length;
 
     if (currentlength <= 0) {
         placeholder.style.display = "block";
         counter.style.display = "none";
-        buttonSend.classList.remove("active");
+        // buttonSend.classList.remove("active");
     } else {
         placeholder.style.display = "none";
         counter.style.display = "block";
@@ -38,6 +41,7 @@ function validated(element) {
     }
 
     counter.innerText = maxLength - currentlength;
+
 
     if (currentlength > maxLength) {
         let overText = element.innerText.substr(maxLength); //extracting over texts

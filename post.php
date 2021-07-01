@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+  if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
 
 
 ?>
@@ -70,7 +70,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
           </div>
         </div>
       </div>
+      
       <div class="home_content">
+        <div class="add_message">
+        <a href="post-message.php"><i class='bx bx-message-add'></i></a>
+      </div>
       <!-- <div class="home_container">
         <div class="homemessage_container" id="MessageContainer">
           <div class="homemessageheader">
@@ -147,11 +151,12 @@ if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
                 </div>
                 <div class="home-profilename">
                 
-                <h4 class=home-username >@<?php echo $row["user_name"]. "&nbsp" . $row["name"] ?></h4>
+                <h4 class=home-username ><a href="account.php?id=<?php $row["id"] ?>">@<?php echo $row["user_name"] . "\n"?></a><?php echo $row["name"] ?> </h4>
               
                 </div>
               </div>
               <div class="home-messagebox">
+              <h4 class=home-username >
                 <?php 
                 // echo "<img src=". "\"". $row["postImage"]. "\"". "alt=". "\"IMG\"". ">";
                 echo "<p>". $row["postMessage"]. "</p>";
